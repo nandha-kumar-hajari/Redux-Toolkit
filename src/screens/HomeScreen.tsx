@@ -9,10 +9,10 @@ import {
 } from '../reduxtoolkit/slices/counterSlice';
 
 const HomeScreen = () => {
-    const count = useSelector((state: RootState) => state.appData.value);
+  const count = useSelector((state: RootState) => state.appData.value);
 
   const dispatch = useDispatch();
-  const [textValue, setTextValue] = useState();
+  const [textValue, setTextValue] = useState(0);
   //   const [counterValue, setCounterValue] = useState(0);
   return (
     <View style={{alignItems: 'center', justifyContent: 'center', flex: 1}}>
@@ -35,7 +35,7 @@ const HomeScreen = () => {
       <View style={{marginTop: 10}}>
         <Button
           title="SUBMIT VALUE"
-          onPress={() => dispatch(incrementByAmount(10))}
+          onPress={() => dispatch(incrementByAmount(Number(textValue)))}
         />
       </View>
       <View
